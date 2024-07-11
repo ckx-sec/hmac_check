@@ -20,8 +20,6 @@
 >
 > 因为sha2库可以实现并行运算，计算3000组hmac只需2-3秒，因为可以调用计算机全部的算力，相同任务python需要5-6小时。
 
-<img src="./assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.06.07.png" alt="截屏2024-07-11 19.06.07" style="zoom:50%;" />
-
 注：不过rust有一个不同（https://docs.rs/hmac/latest/src/hmac/lib.rs.html#1-131）或者（https://github.com/briansmith/ring/blob/main/src/hmac.rs）都是如此，即ipad和opad的设置和论文是相反的。所以我之后都是按照这个来当标准的。
 
 <img src="./assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.29.24.png" alt="截屏2024-07-11 19.29.24" style="zoom:50%;" />
