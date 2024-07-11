@@ -4,7 +4,7 @@
 
 老师课上提到了一个问题，就是在hmac中使用0x36和0x5c这两个值的原因，我找到了这篇论文，在文章里，其实也并没有提到为什么这样选择，具体内容如下：
 
-![截屏2024-07-11 15.56.49](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2015.56.49.png)
+![截屏2024-07-11 15.56.49](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2015.56.49.png)
 
 
 
@@ -22,11 +22,11 @@
 >
 > 因为sha2库可以实现并行运算，计算3000组hmac只需2-3秒，因为可以调用计算机全部的算力，相同任务python需要5-6小时。
 
-<img src="./%E6%88%AA%E5%B1%8F2024-07-11%2019.06.07.png" alt="截屏2024-07-11 19.06.07" style="zoom:50%;" />
+<img src="./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.06.07.png" alt="截屏2024-07-11 19.06.07" style="zoom:50%;" />
 
 注：不过rust有一个不同（https://docs.rs/hmac/latest/src/hmac/lib.rs.html#1-131）或者（https://github.com/briansmith/ring/blob/main/src/hmac.rs）都是如此，即ipad和opad的设置和论文是相反的。所以我之后都是按照这个来当标准的。
 
-<img src="../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2019.29.24.png" alt="截屏2024-07-11 19.29.24" style="zoom:50%;" />
+<img src="./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.29.24.png" alt="截屏2024-07-11 19.29.24" style="zoom:50%;" />
 
 
 
@@ -96,7 +96,7 @@ fn hmac(key: &[u8], opad_val: u8, ipad_val: u8, message: &[u8]) -> Vec<u8> {
 
 ```
 
-![截屏2024-07-11 17.30.47](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2017.30.47.png)
+![截屏2024-07-11 17.30.47](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2017.30.47.png)
 
 结果一致，说明自己实现的hmac正确。
 
@@ -200,11 +200,13 @@ println!("Message pairs written to {}", message_pairs_file);
 
 将结果处理成图：
 
-![截屏2024-07-11 19.54.42](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2019.54.42.png)
+![截屏2024-07-11 19.54.42](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.54.42.png)
 
 
 
-![截屏2024-07-11 19.55.57](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2019.55.57.png)
+
+
+![截屏2024-07-11 19.55.57](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.55.57.png)
 
 #### 0x04 计算hmac字节级的信息熵
 
@@ -228,23 +230,27 @@ println!("Results written to {}", output_file);
 
 将结果处理成图：
 
-![截屏2024-07-11 19.51.15](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2019.51.15.png)
+![截屏2024-07-11 19.51.15](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.51.15.png)
 
-![截屏2024-07-11 19.56.19](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2019.56.19.png)
+
+
+![截屏2024-07-11 19.56.19](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2019.56.19.png)
 
 
 
 #### 0x05 计算每组hmac比特级的平均差值
 
-![截屏2024-07-11 20.21.44](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2020.21.44.png)
+![截屏2024-07-11 20.21.44](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2020.21.44.png)
 
-![截屏2024-07-11 20.23.01](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2020.23.01.png)
+
+
+![截屏2024-07-11 20.23.01](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2020.23.01.png)
 
 #### 0x06 计算hmac比特级的信息熵
 
-![截屏2024-07-11 20.22.23](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2020.22.23.png)
+![截屏2024-07-11 20.22.23](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2020.22.23.png)
 
-![截屏2024-07-11 20.22.47](../Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2024-07-11%2020.22.47.png)
+![截屏2024-07-11 20.22.47](./%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%AE%BA%E4%BD%9C%E4%B8%9A.assets/%E6%88%AA%E5%B1%8F2024-07-11%2020.22.47.png)
 
 
 
@@ -256,4 +262,3 @@ println!("Results written to {}", output_file);
 
 
 
-# hmac_check
